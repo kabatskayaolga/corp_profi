@@ -1,0 +1,64 @@
+extend includes/base
+
+block content 
+	- 
+		var information = {
+			header: 'Корпоративное обучение с практическим подходом в Профи-Карьера',
+			headerContentUl: [
+				'Получите составленную оптимальную по длительности программу развития ваших сотрудников,',
+				'Составьте свою индивидуальную обучающую программу,',
+				'Экономьте ваши деньги и время ваших сотрудников,',
+				'Ваши сотрудники получат только практические навыки на основе кейсов ситуационных практик'
+			],
+			approachesHeader: 'Два «Кита» на которых строится наше корпоративное обучение',
+			approaches:[
+				{
+					name: 'Модульный подход',
+					information: {
+						more: [
+							'250 программ по типу «конструктора»',
+							'возможность сформировать комплексную программу обучения',
+							'возможность выбрать интересующие тематические блоки',
+							'программа легко трансформируется в соответствующую вашим потребностям'
+						],
+						
+					},
+				},
+				{
+					name: 'Практический подход',
+					information: 'Ваши сотрудники отрабатывают навыки и закрепляют изученный материал в деловых играх и практических ситуациях по технологии «обучение действием».'
+				}
+			]
+
+		}
+	// Add header here
+
+	div.header_content
+		.header_container._container
+			.header_content_text
+				h1= information.header
+				ul
+					each val in information.headerContentUl
+						li= val
+				a.button(href="#") Получить консультацию
+	div.approaches
+		._container
+			h2= information.approachesHeader
+		.dark_blue_container
+			._container._containerflex-2
+				each val in information.approaches
+					div.approaches-align-block
+						h3= val.name
+
+						if val.information.more
+							div
+								each value in val.information.more
+								
+									span= value
+						else
+							span.once= val.information
+
+
+
+
+	// Add footer here
