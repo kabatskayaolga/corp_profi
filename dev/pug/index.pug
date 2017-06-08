@@ -28,7 +28,43 @@ block content
 					name: 'Практический подход',
 					information: 'Ваши сотрудники отрабатывают навыки и закрепляют изученный материал в деловых играх и практических ситуациях по технологии «обучение действием».'
 				}
-			]
+			],
+			presentationBlock: {
+				header: 'Наши успешные кейсы проведенного корпоративного обучения в презентации',
+			},
+			standarts: {
+				header: 'Что вам дает адаптация наших программ под требования профессиональных стандартов РФ?',
+				info: [
+					'С 1 июля 2016 года в России <strong>начинают действовать правила обязательного применения профессиональных стандартов работодателями.</strong> Для соответствия занимаемым должностям все сотрудники должны обладать определенными квалификацией, знаниями, умениями и навыками, которые закреплены в профстандартах.',
+
+					'<strong>Проходя обучение у нас</strong>, ваши сотрудники приобретают только те компетенции, которые реально необходимы для выполнения должностных обязанностей. Это возможно благодаря адаптации всех наших обучающих программ под требования профстандартов РФ. Таким образом, вы экономите ваши деньги и бережете время ваших сотрудников, не тратя их на лишнюю информацию.',
+
+					'Каждая из них подразумеваетвыполнение определенных действий, наличие умений и знаний. <strong>Наши семинары и тренинги</strong> для секретарей направлены на отработку этих компетенций, наличие которых требует от секретарей-администраторов профессиональный стандарт.',
+
+					'<strong class="akcent-text">В отличие от программ конкурентов, наши тематические модули включают в себя только необходимые содержательные блоки.</strong>'
+				],
+			},
+			photoBlock: {
+				header: 'Фотографии наших корпоративных тренингов и семинаров',
+				photos: [
+					{
+						src: 'images/slider/1.JPG',
+						alt: '1'
+					},
+					{
+						src: 'images/slider/2.JPG',
+						alt: '2'
+					},
+					{
+						src: 'images/slider/3.jpg',
+						alt: '3'
+					},
+					{
+						src: 'images/slider/4.JPG',
+						alt: '4'
+					},
+				]
+			}
 
 		}
 	// Add header here
@@ -57,8 +93,32 @@ block content
 									span= value
 						else
 							span.once= val.information
-
-
-
-
+	div.presentation_block
+		.light_blue_container
+			._container
+				h2= information.presentationBlock.header
+				div
+					iframe(
+						allowfullscreen=""
+						frameborder="0"
+						height="450px"
+						src="//www.slideshare.net/slideshow/embed_code/key/fbgqYOp6ufSWRj" 
+						style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" 
+						width="700px")
+	div.standarts
+		._container._containerflex-2
+			div
+				img(src="images/gerb.jpg")
+			div
+				h2= information.standarts.header
+				each value in information.standarts.info
+					p !{value}
+	div.photo_slider.grey_container
+		._container
+			h2= information.photoBlock.header
+			.slider_upper_block
+				._containerflex-2
+					each value in information.photoBlock.photos
+						div
+							img(src= value.src, alt= value.alt)
 	// Add footer here

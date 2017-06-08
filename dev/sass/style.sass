@@ -4,6 +4,7 @@
 $dark-green-color: #01414a
 $light-green-color: #39a6b7
 $yellow-color: #ffed66
+$grey-color: #efede8
 /*! Overwrite main content style */
 
 section.main
@@ -33,10 +34,12 @@ html,body
 		&.header_container
 			padding-top: 80px
 			padding-bottom: 80px
-	&._containerflex-2
-		display: flex
-		@media (max-width: 600px)
-			flex-wrap: wrap
+._containerflex-2
+	display: flex
+	@media (max-width: 600px)
+		flex-wrap: wrap
+	h2
+		text-align: left
 
 
 .dark_blue_container
@@ -44,16 +47,27 @@ html,body
 	h1,h2,h3,h4,h5,h6,p,li, span
 		color: white
 
+.light_blue_container
+	background-color: $light-green-color
+	h1,h2,h3,h4,h5,h6,p,li, span
+		color: white
+.grey_container
+	background-color: $grey-color
+
 h1,h2
 	font-weight: 400
 	color: $dark-green-color
 	margin-top: 0
-
+h2
+	text-align: center
+	@media (min-width: 1300px)
+		font-size: 36px
 h3
 	font-weight: 400
 	text-transform: uppercase
 	text
-
+.akcent-text
+	color: $dark-green-color
 .button
 	height: 2.2rem
 	line-height: 2rem
@@ -110,6 +124,18 @@ ul
 			min-width: 600px
 		
 .approaches
+	.dark_blue_container
+		position: relative
+		&:before
+			@media (min-width: 600px)
+				position: absolute
+				top: 0
+				bottom: 0
+				right: 0
+				width: 50%
+				background-color: lighten($dark-green-color, 5%)
+				content: ''
+				display: block
 	._containerflex-2
 		@media (min-width: 600px)
 			& > div
@@ -162,17 +188,29 @@ ul
 		margin-bottom: 5px
 		position: relative
 		display: block
-		margin-left: 20px
+		margin-left: 35px
 		&:before
 			content: ''
-			display: table
+			display: block
+			height: 1px
+			width: 20px
+			background-color: white
+			border-radius: initial
+			border: none
 			position: absolute
-			left: -20px
+			top: 15px
+			left: -30px
+		&:after
+			content: ''
+			display: block
 			width: 10px
 			height: 10px
-			border: 2px solid $light-green-color
+			background-color: white
 			border-radius: 50%
-			top: 7px
+			border: none
+			position: absolute
+			top: 10px
+			left: -35px
 		@media (min-width: 1300px)
 			position: absolute
 			margin-left: 0
@@ -234,7 +272,7 @@ ul
 					top: initial
 					left: 25.5px
 			&:nth-child(2n)
-				right: calc(50% + 167px/2)
+				right: calc(50% + 167px/2 + 2-px)
 				top: calc(50% - 167px/2)
 				&:before
 					content: ''
@@ -248,7 +286,7 @@ ul
 					top: 30px
 					bottom: initial
 					left: initial
-					right: 3px
+					right: -18px
 				&:after
 					content: ''
 					display: block
@@ -261,9 +299,9 @@ ul
 					top: 25.5px
 					bottom: initial
 					left: initial
-					right: 23px
+					right: 10px
 			&:nth-child(4n)
-				left: calc(50% + 167px/2 + 40px)
+				left: calc(50% + 167px/2 + 30px)
 				right: initial
 				top: calc(50% - 167px/2)
 				&:before
@@ -278,7 +316,7 @@ ul
 					top: 30px
 					bottom: initial
 					left: initial
-					right: 176px
+					right: 198px
 				&:after
 					content: ''
 					display: block
@@ -291,10 +329,10 @@ ul
 					top: 25.5px
 					bottom: initial
 					left: initial
-					right: 176px
+					right: 198px
 	@media (min-width: 1300px)
 		h3 + span.once
-			top: 100%
+			top: 79%
 			left: calc(50% - 167px/2)
 			right: initial
 			&:before
@@ -318,35 +356,36 @@ ul
 				border-radius: 50%
 				border: none
 				position: absolute
-				bottom: 0px
-				top: initial
+				bottom: initial
+				top: -15px
 				left: 25.5px
-		&:nth-child(2n)
-			right: calc(50% + 167px/2)
-			top: calc(50% - 167px/2)
-			&:before
-				content: ''
-				display: block
-				height: 1px
-				width: 30px
-				background-color: white
-				border-radius: initial
-				border: none
-				position: absolute
-				top: 30px
-				bottom: initial
-				left: initial
-				right: 3px
-			&:after
-				content: ''
-				display: block
-				width: 10px
-				height: 10px
-				background-color: white
-				border-radius: 50%
-				border: none
-				position: absolute
-				top: 25.5px
-				bottom: initial
-				left: initial
-				right: 23px
+
+.presentation_block
+	padding-bottom: 150px
+	iframe
+		margin: 0 auto
+		margin-bottom: -150px!important
+		@media (min-width: 700px)
+			position: relative
+			left: calc(50% - 350px)
+
+.standarts
+	@media (min-width: 600px)
+		img
+			margin-right: 20px
+
+
+.photo_slider
+	.slider_upper_block
+		overflow: hidden
+		._containerflex-2
+			@media (max-width: 600px)
+				flex-wrap: nowrap
+				img
+					// width: 100%
+					margin-right: 15px
+					height: 170px
+		img
+			height: 250px
+			margin-right: 20px
+
